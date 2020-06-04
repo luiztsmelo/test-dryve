@@ -37,7 +37,7 @@ export default Vue.extend({
           fontFamily: 'Inter',
           fontSize: '13px',
           fontWeight: 500,
-          formatter: function (seriesName, opts) {
+          formatter: function (seriesName: unknown, opts: unknown) {
             return [seriesName, ' - ', opts.w.globals.series[opts.seriesIndex] + '%']
           }
         }

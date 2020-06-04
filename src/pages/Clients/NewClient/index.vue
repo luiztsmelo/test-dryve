@@ -38,13 +38,13 @@
           <input type="tel" placeholder="Telefone" v-mask="'(##) #####-####'" v-model="client.phoneNumber"/>
           <button type="button" class="add-phonenumber-btn" v-if="!hasAnotherPhoneNumber" @click="hasAnotherPhoneNumber = true">+ adicionar outro</button>
           <input type="tel" placeholder="Telefone 2" v-mask="'(##) #####-####'" v-model="client.phoneNumber2" v-else/>
-          <input type="tel" placeholder="CEP" v-mask="'#####-###'" v-model="client.zipcode"/>
-          <input type="text" placeholder="Endereço" v-model="client.street" style="grid-column: 1 / 3" :disabled="client.zipcode.length < 9 || zipcodeError">
-          <input type="text" placeholder="Número" v-mask="'####'" v-model="client.streetNumber" :disabled="client.zipcode.length < 9 || zipcodeError">
-          <input type="text" placeholder="Complemento" v-model="client.complement" :disabled="client.zipcode.length < 9 || zipcodeError">
-          <input type="text" placeholder="Bairro" v-model="client.neighborhood" style="grid-column: 1 / 3" :disabled="client.zipcode.length < 9 || zipcodeError">
-          <input type="text" placeholder="Cidade" v-model="client.city" :disabled="client.zipcode.length < 9 || zipcodeError">
-          <select v-model="client.state" :disabled="client.zipcode.length < 9 || zipcodeError">
+          <input type="tel" placeholder="CEP" v-mask="'#####-###'" v-model="client.cep"/>
+          <input type="text" placeholder="Endereço" v-model="client.street" style="grid-column: 1 / 3" :disabled="invalidCep">
+          <input type="text" placeholder="Número" v-mask="'####'" v-model="client.streetNumber" :disabled="invalidCep">
+          <input type="text" placeholder="Complemento" v-model="client.complement" :disabled="invalidCep">
+          <input type="text" placeholder="Bairro" v-model="client.neighborhood" style="grid-column: 1 / 3" :disabled="invalidCep">
+          <input type="text" placeholder="Cidade" v-model="client.city" :disabled="invalidCep">
+          <select v-model="client.state" :disabled="invalidCep">
             <option value="" disabled selected hidden>Estado</option>
             <option v-for="state in brazilianStates" :key="state" :value="state">{{ state }}</option>
           </select>
@@ -60,7 +60,7 @@
       </main>
 
       <footer>
-        <Button type="primary" label="Salvar" @click.native="saveClient" />
+        <Button type="primary" label="Salvar" @click.native="saveClient" :disabled="!validForm" />
         <Button type="secondary" label="Cancelar" @click.native="$router.push({ name: 'clients' })" />
       </footer>
     </form>
@@ -88,7 +88,8 @@ export default Vue.extend({
   data () {
     return {
       hasAnotherPhoneNumber: false,
-      zipcodeError: false,
+      cepLoading: false,
+      cepError: false,
       brazilianStates: ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO'],
       client: {
         uuid: '',
@@ -99,7 +100,7 @@ export default Vue.extend({
         email: '',
         phoneNumber: '',
         phoneNumber2: '',
-        zipcode: '',
+        cep: '',
         street: '',
         streetNumber: '',
         complement: '',
@@ -123,19 +124,43 @@ export default Vue.extend({
       }
     }
   },
+  computed: {
+    invalidCep (): boolean {
+      return this.cepLoading || this.client.cep.length < 9 || this.cepError
+    },
+    validForm (): boolean {
+      return (
+        !!this.client.status &&
+        !!this.client.firstName &&
+        !!this.client.lastName &&
+        !!this.client.email &&
+        this.client.phoneNumber.length === 15 &&
+        this.client.cep.length === 9 &&
+        !!this.client.street &&
+        !!this.client.streetNumber &&
+        !!this.client.neighborhood &&
+        !!this.client.city &&
+        !!this.client.state
+      )
+    }
+  },
   watch: {
-    async 'client.zipcode' (value: string) {
+    async 'client.cep' (value: string) {
       if (value.length === 9) {
         try {
-          const zipcodeInfo = await cep(value)
+          this.cepLoading = true
 
-          this.client.street = zipcodeInfo.street
-          this.client.neighborhood = zipcodeInfo.neighborhood
-          this.client.city = zipcodeInfo.city
-          this.client.state = zipcodeInfo.state
+          const cepData = await cep(value)
+
+          this.client.street = cepData.street
+          this.client.neighborhood = cepData.neighborhood
+          this.client.city = cepData.city
+          this.client.state = cepData.state
         } catch (error) {
           console.error(error)
-          this.zipcodeError = true
+          this.cepError = true
+        } finally {
+          this.cepLoading = false
         }
       }
     }
@@ -238,6 +263,11 @@ input {
   }
 }
 
+input:disabled {
+  background-color: #fff;
+  opacity: 0.5;
+}
+
 select {
   height: 54px;
   border-radius: 4px;
@@ -252,5 +282,11 @@ select {
   &:focus {
     border: solid 1px #6200ee;
   }
+}
+
+select:disabled {
+  background-color: #fff;
+  opacity: 0.5;
+  color: rgba(0, 0, 0, 0.5);
 }
 </style>

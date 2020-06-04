@@ -1,5 +1,5 @@
 <template>
-  <button type="button" :style="buttonStyle">
+  <button type="button" :style="buttonStyle" :disabled="disabled">
     <img class="icon" :src="imgSrc" :style="iconStyle" v-if="icon">
     <span class="label">{{ label }}</span>
   </button>
@@ -12,6 +12,7 @@ export default Vue.extend({
   props: {
     label: { type: String, default: 'button', required: true },
     type: { type: String, default: 'primary', required: true },
+    disabled: { type: Boolean, default: false, required: false },
     icon: { type: String }
   },
   computed: {
@@ -63,5 +64,10 @@ button {
     height: 14px;
     margin-right: 8px;
   }
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.3;
 }
 </style>

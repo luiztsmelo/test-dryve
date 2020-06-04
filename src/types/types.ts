@@ -26,7 +26,7 @@ export interface Client {
   email: string
   phonenumber: string
   phonenumber2: string
-  zipcode: string
+  cep: string
   street: string
   streetnumber: string
   complement: string

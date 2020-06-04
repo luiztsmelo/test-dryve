@@ -99,7 +99,8 @@ export default Vue.extend({
   computed: {
     averageStockTicket (): string {
       if (this.vehicles.length > 0) {
-        const averageStockTicket = this.vehicles.reduce((r, c) => r + c.ad_selling_price, 0) / this.vehicles.length
+        const averageStockTicket = this.vehicles.reduce((prev, curr) => prev + curr.ad_selling_price, 0) / this.vehicles.length
+
         return averageStockTicket.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 0, maximumFractionDigits: 0 })
       } else {
         return 'R$ -'
