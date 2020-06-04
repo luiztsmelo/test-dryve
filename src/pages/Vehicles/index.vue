@@ -1,22 +1,21 @@
 <template>
-  <main id="content">
-
-    <slot />
-
-  </main>
+  <div id="vehicles">
+    <h1>Veículos</h1>
+  </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 
 export default Vue.extend({
+  name: 'vehicles',
+  metaInfo: {
+    title: 'Veículos - Dryve'
+  }
 })
 </script>
 
 <style lang="scss" scoped>
-#content {
-  background-color: #f3f4f6;
-  padding: 30px 55px 0 30px;
-  overflow: auto;
+#vehicles {
 }
 </style>

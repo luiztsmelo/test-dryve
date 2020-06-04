@@ -15,8 +15,10 @@
   align-items: center;
   justify-content: space-between;
   background-color: #f3f4f6;
-  padding: 0 55px 0 30px;
+  height: 60px;
+  margin-top: 30px;
   user-select: none;
+  border-top: 1px solid #dfe3e8;
 
   .copyright {
     font-family: 'Roboto';

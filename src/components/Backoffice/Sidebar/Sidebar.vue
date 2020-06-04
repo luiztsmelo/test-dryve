@@ -1,5 +1,5 @@
 <template>
-  <div id="sidebar" :style="`width: ${expanded ? '240px' : '50px'}`" @mouseover="expanded = true" @mouseleave="expanded = false">
+  <div id="sidebar" :style="`width: ${expanded ? '220px' : '50px'}`" @mouseover="expanded = true" @mouseleave="expanded = false">
 
     <div class="user">
       <img class="avatar" src="@/assets/images/tarcisio.jpg" alt="Tarcísio Melo">
@@ -13,26 +13,26 @@
       </div>
     </div>
 
-    <Item :to="{ name: 'home' }" icon="ic-home" text="Início" :expanded="expanded" />
+    <Link :to="{ name: 'home' }" icon="ic-home" label="Início" :expanded="expanded" />
 
-    <Item :to="{ name: 'clients' }" icon="ic-person" text="Clientes" :expanded="expanded" />
+    <Link :to="{ name: 'clients' }" icon="ic-person" label="Clientes" :expanded="expanded" />
 
-    <Item :to="{ name: 'cars' }" icon="ic-directions-car" text="Veículos" :expanded="expanded" />
+    <Link :to="{ name: 'vehicles' }" icon="ic-directions-car" label="Veículos" :expanded="expanded" />
 
-    <Item :to="{ name: 'triangle' }" icon="ic-vector-triangle" text="Triangulação" :expanded="expanded" />
+    <Link :to="{ name: 'triangulation' }" icon="ic-vector-triangle" label="Triangulação" :expanded="expanded" />
 
-    <Item :to="{ name: 'wallet' }" icon="ic-account-balance-wallet" text="Financeiro" :expanded="expanded" disabled />
+    <Link :to="{ name: 'finance' }" icon="ic-account-balance-wallet" label="Financeiro" :expanded="expanded" disabled />
 
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import Item from '@/components/Backoffice/Sidebar/Item.vue'
+import Link from '@/components/Backoffice/Sidebar/Link.vue'
 
 export default Vue.extend({
   components: {
-    Item
+    Link
   },
   data () {
     return {
@@ -42,7 +42,7 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 #sidebar {
   grid-area: Sidebar;
   display: flex;
@@ -72,7 +72,7 @@ export default Vue.extend({
       flex-direction: column;
       align-items: flex-start;
       padding-left: 15px;
-      min-width: 175px;
+      min-width: 155px;
 
       .username {
         font-size: 14px;
@@ -87,7 +87,7 @@ export default Vue.extend({
         cursor: pointer;
         border: none;
         outline: none;
-        background-color: #fff;
+        background-color: transparent;
         padding: 0;
 
         .icon {
