@@ -4,6 +4,16 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+  getters: {
+    getClients: state => (itemsPerPage: number, page: number) => {
+      return state.clients.slice(itemsPerPage * page - (itemsPerPage - 1) - 1, itemsPerPage * page)
+    }
+  },
+  mutations: {
+    ADD_CLIENT (state, client) {
+      state.clients.push(client)
+    }
+  },
   state: {
     clients: [
       {
@@ -56,12 +66,160 @@ export default new Vuex.Store({
         neighborhood: 'Bela Vista',
         city: 'São Paulo',
         state: 'SP'
+      },
+      {
+        uuid: '48e009cc-a5b0-11ea-bb37-0242ac134267',
+        status: 'Lead',
+        firstName: 'Renata',
+        lastName: 'Santos',
+        fullName: 'Renata Santos',
+        email: 'renata@gmail.com',
+        phoneNumber: '(11) 99232-3212',
+        phoneNumber2: '',
+        cep: '01310-100',
+        street: 'Avenida Paulista',
+        streetNumber: '4252',
+        complement: '',
+        neighborhood: 'Bela Vista',
+        city: 'São Paulo',
+        state: 'SP'
+      },
+      {
+        uuid: '48e009cc-a5b0-11ea-bb37-0242ac138643',
+        status: 'Lead',
+        firstName: 'Renata',
+        lastName: 'Santos',
+        fullName: 'Renata Santos',
+        email: 'renata@gmail.com',
+        phoneNumber: '(11) 99232-3212',
+        phoneNumber2: '',
+        cep: '01310-100',
+        street: 'Avenida Paulista',
+        streetNumber: '4252',
+        complement: '',
+        neighborhood: 'Bela Vista',
+        city: 'São Paulo',
+        state: 'SP'
+      },
+      {
+        uuid: '48e009cc-a5b0-11ea-bb37-0242ac131234',
+        status: 'Lead',
+        firstName: 'Renata',
+        lastName: 'Santos',
+        fullName: 'Renata Santos',
+        email: 'renata@gmail.com',
+        phoneNumber: '(11) 99232-3212',
+        phoneNumber2: '',
+        cep: '01310-100',
+        street: 'Avenida Paulista',
+        streetNumber: '4252',
+        complement: '',
+        neighborhood: 'Bela Vista',
+        city: 'São Paulo',
+        state: 'SP'
+      },
+      {
+        uuid: '48e009cc-a5b0-11ea-bb37-0242ac134321',
+        status: 'Lead',
+        firstName: 'Renata',
+        lastName: 'Santos',
+        fullName: 'Renata Santos',
+        email: 'renata@gmail.com',
+        phoneNumber: '(11) 99232-3212',
+        phoneNumber2: '',
+        cep: '01310-100',
+        street: 'Avenida Paulista',
+        streetNumber: '4252',
+        complement: '',
+        neighborhood: 'Bela Vista',
+        city: 'São Paulo',
+        state: 'SP'
+      },
+      {
+        uuid: '48e009cc-a5b0-11ea-bb37-0242ac134323',
+        status: 'Lead',
+        firstName: 'Renata',
+        lastName: 'Santos',
+        fullName: 'Renata Santos',
+        email: 'renata@gmail.com',
+        phoneNumber: '(11) 99232-3212',
+        phoneNumber2: '',
+        cep: '01310-100',
+        street: 'Avenida Paulista',
+        streetNumber: '4252',
+        complement: '',
+        neighborhood: 'Bela Vista',
+        city: 'São Paulo',
+        state: 'SP'
+      },
+      {
+        uuid: '48e009cc-a5b0-11ea-bb37-0242ac134432',
+        status: 'Lead',
+        firstName: 'Renata',
+        lastName: 'Santos',
+        fullName: 'Renata Santos',
+        email: 'renata@gmail.com',
+        phoneNumber: '(11) 99232-3212',
+        phoneNumber2: '',
+        cep: '01310-100',
+        street: 'Avenida Paulista',
+        streetNumber: '4252',
+        complement: '',
+        neighborhood: 'Bela Vista',
+        city: 'São Paulo',
+        state: 'SP'
+      },
+      {
+        uuid: '48e009cc-a5b0-11ea-bb37-0242ac134441',
+        status: 'Lead',
+        firstName: 'Renata',
+        lastName: 'Santos',
+        fullName: 'Renata Santos',
+        email: 'renata@gmail.com',
+        phoneNumber: '(11) 99232-3212',
+        phoneNumber2: '',
+        cep: '01310-100',
+        street: 'Avenida Paulista',
+        streetNumber: '4252',
+        complement: '',
+        neighborhood: 'Bela Vista',
+        city: 'São Paulo',
+        state: 'SP'
+      },
+      {
+        uuid: '48e009cc-a5b0-11ea-bb37-0242ac134421',
+        status: 'Lead',
+        firstName: 'Marcelo',
+        lastName: 'Santos',
+        fullName: 'Marcelo Santos',
+        email: 'marcelo@gmail.com',
+        phoneNumber: '(11) 99232-3212',
+        phoneNumber2: '',
+        cep: '01310-100',
+        street: 'Avenida Paulista',
+        streetNumber: '4252',
+        complement: '',
+        neighborhood: 'Bela Vista',
+        city: 'São Paulo',
+        state: 'SP'
+      },
+      {
+        uuid: '48e009cc-a5b0-11ea-bb37-0242ac135432',
+        status: 'Lead',
+        firstName: 'Bruna',
+        lastName: 'Santos',
+        fullName: 'Bruna Santos',
+        email: 'bru@gmail.com',
+        phoneNumber: '(11) 99232-3212',
+        phoneNumber2: '',
+        cep: '01310-100',
+        street: 'Avenida Paulista',
+        streetNumber: '4252',
+        complement: '',
+        neighborhood: 'Bela Vista',
+        city: 'São Paulo',
+        state: 'SP'
       }
     ]
-  },
-  mutations: {
-    ADD_CLIENT (state, client) {
-      state.clients.push(client)
-    }
   }
 })

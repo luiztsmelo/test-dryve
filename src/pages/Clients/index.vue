@@ -32,19 +32,19 @@
         <div class="pagination">
           <span>Itens por página:</span>
 
-          <select v-model="pagination.itemsPerPage">
+          <select v-model="itemsPerPage">
             <option value="10" selected>10</option>
             <option value="20">20</option>
             <option value="50">50</option>
             <option value="100">100</option>
           </select>
 
-          <span>1-{{ pagination.itemsPerPage }} de {{ $store.state.clients.length }}</span>
+          <span>{{ paginationRange }} de {{ $store.state.clients.length }}</span>
         </div>
 
         <div class="page-controllers">
-          <img class="btn back" src="@/assets/images/ic-chevron-left.svg">
-          <img class="btn next" src="@/assets/images/ic-chevron-left.svg">
+          <img class="btn prev" src="@/assets/images/ic-chevron-left.svg" @click="prevPage">
+          <img class="btn next" src="@/assets/images/ic-chevron-left.svg" @click="nextPage">
         </div>
       </footer>
     </div>
@@ -72,14 +72,18 @@ export default Vue.extend({
       checkAllClients: false,
       checkedClients: [],
       searchInput: '',
-      pagination: {
-        page: 1,
-        totalPages: 1,
-        itemsPerPage: 10
-      }
+      page: 1,
+      totalPages: 1,
+      itemsPerPage: 10
     }
   },
   methods: {
+    prevPage () {
+      if (this.page > 1) this.page--
+    },
+    nextPage () {
+      if (this.$store.state.clients.length > this.itemsPerPage * this.page) this.page++
+    },
     clientStatusTagStyle (client: Client): string {
       if (client.status === 'Cliente') {
         return 'background-color: #f3f7ff; color: #0065ff'
@@ -91,12 +95,18 @@ export default Vue.extend({
     }
   },
   computed: {
-    filteredClients () {
+    filteredClients (): Client {
       if (this.searchInput) {
-        return this.$store.state.clients.filter((client: Client) => client.fullName.toLowerCase().includes(this.searchInput))
+        return this.$store.getters.getClients(this.itemsPerPage, this.page).filter((client: Client) => client.fullName.toLowerCase().includes(this.searchInput))
       } else {
-        return this.$store.state.clients
+        return this.$store.getters.getClients(this.itemsPerPage, this.page)
       }
+    },
+    paginationRange (): string {
+      const firstItem = this.itemsPerPage * this.page - (this.itemsPerPage - 1)
+      const lastItem = this.itemsPerPage * this.page
+
+      return firstItem + '-' + lastItem
     }
   }
 })

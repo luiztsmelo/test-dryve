@@ -114,7 +114,7 @@ export default Vue.extend({
 #home {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 110px 1fr 200px;
+  grid-template-rows: 110px auto 200px;
   grid-gap: 30px;
 }
 </style>
