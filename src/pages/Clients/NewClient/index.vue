@@ -33,17 +33,29 @@
       <main>
         <div class="client-data-form" v-if="$route.params.tab === 'dados-do-cliente'">
           <input type="text" placeholder="Nome" v-model="client.firstName">
+
           <input type="text" placeholder="Sobrenome" v-model="client.lastName">
+
           <input type="email" placeholder="E-mail" v-model="client.email" style="grid-column: 1 / 3">
+
           <input type="tel" placeholder="Telefone" v-mask="'(##) #####-####'" v-model="client.phoneNumber"/>
+
           <button type="button" class="add-phonenumber-btn" v-if="!hasAnotherPhoneNumber" @click="hasAnotherPhoneNumber = true">+ adicionar outro</button>
+
           <input type="tel" placeholder="Telefone 2" v-mask="'(##) #####-####'" v-model="client.phoneNumber2" v-else/>
+
           <input type="tel" placeholder="CEP" v-mask="'#####-###'" v-model="client.cep"/>
+
           <input type="text" placeholder="Endereço" v-model="client.street" style="grid-column: 1 / 3" :disabled="invalidCep">
+
           <input type="text" placeholder="Número" v-mask="'####'" v-model="client.streetNumber" :disabled="invalidCep">
+
           <input type="text" placeholder="Complemento" v-model="client.complement" :disabled="invalidCep">
+
           <input type="text" placeholder="Bairro" v-model="client.neighborhood" style="grid-column: 1 / 3" :disabled="invalidCep">
+
           <input type="text" placeholder="Cidade" v-model="client.city" :disabled="invalidCep">
+
           <select v-model="client.state" :disabled="invalidCep">
             <option value="" disabled selected hidden>Estado</option>
             <option v-for="state in brazilianStates" :key="state" :value="state">{{ state }}</option>

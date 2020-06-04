@@ -15,10 +15,10 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import Sidebar from '@/components/Backoffice/Sidebar/Sidebar.vue'
-import Header from '@/components/Backoffice/Header.vue'
-import Content from '@/components/Backoffice/Content.vue'
-import Footer from '@/components/Backoffice/Footer.vue'
+import Sidebar from '@/components/Sidebar/Sidebar.vue'
+import Header from '@/components/Header.vue'
+import Content from '@/components/Content.vue'
+import Footer from '@/components/Footer.vue'
 
 export default Vue.extend({
   components: {
@@ -36,7 +36,6 @@ export default Vue.extend({
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 
 #app {
-  font-family: 'Inter';
   display: grid;
   grid-template-areas:
     "Sidebar Header"
@@ -45,5 +44,6 @@ export default Vue.extend({
   grid-template-rows: 70px auto;
   height: 100vh;
   width: 100vw;
+  font-family: 'Inter';
 }
 </style>

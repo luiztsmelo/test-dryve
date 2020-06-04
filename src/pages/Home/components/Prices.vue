@@ -1,7 +1,7 @@
 <template>
   <div class="prices">
 
-    <Apexchart type="donut" :options="chartOptions" :series="series" width="115%" />
+    <Apexchart type="donut" :options="chartOptions" :series="series" width="113%" />
 
   </div>
 </template>
@@ -37,7 +37,7 @@ export default {
           fontSize: '13px',
           fontWeight: 500,
           formatter: function (seriesName, opts) {
-            return [seriesName, ' - ', opts.w.globals.series[opts.seriesIndex] + '%']
+            return [seriesName, ': ', opts.w.globals.series[opts.seriesIndex] + '%']
           }
         }
       }

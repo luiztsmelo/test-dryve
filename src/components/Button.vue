@@ -13,7 +13,7 @@ export default Vue.extend({
     text: { type: String, default: 'button', required: true },
     type: { type: String, default: 'primary', required: true },
     disabled: { type: Boolean, default: false, required: false },
-    icon: { type: String }
+    icon: { type: String, required: false }
   },
   computed: {
     buttonStyle (): string {

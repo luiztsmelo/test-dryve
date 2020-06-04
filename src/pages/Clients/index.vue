@@ -73,16 +73,23 @@ export default Vue.extend({
       checkedClients: [],
       searchInput: '',
       page: 1,
-      totalPages: 1,
       itemsPerPage: 10
     }
   },
   methods: {
     prevPage () {
-      if (this.page > 1) this.page--
+      if (this.page > 1) {
+        this.checkAllClients = false
+        this.checkedClients = []
+        this.page--
+      }
     },
     nextPage () {
-      if (this.$store.state.clients.length > this.itemsPerPage * this.page) this.page++
+      if (this.$store.state.clients.length > this.itemsPerPage * this.page) {
+        this.checkAllClients = false
+        this.checkedClients = []
+        this.page++
+      }
     },
     clientStatusTagStyle (client: Client): string {
       if (client.status === 'Cliente') {

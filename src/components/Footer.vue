@@ -8,6 +8,13 @@
   </footer>
 </template>
 
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
+})
+</script>
+
 <style lang="scss">
 #footer {
   grid-area: Footer;

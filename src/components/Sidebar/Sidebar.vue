@@ -28,7 +28,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import Link from '@/components/Backoffice/Sidebar/Link.vue'
+import Link from '@/components/Sidebar/Link.vue'
 
 export default Vue.extend({
   components: {

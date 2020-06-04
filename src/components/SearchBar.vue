@@ -13,8 +13,8 @@ import Vue from 'vue'
 
 export default Vue.extend({
   props: {
-    value: String,
-    placeholder: String
+    value: { type: String, required: true },
+    placeholder: { type: String, required: true }
   },
   methods: {
     updateValue (value: string) {
