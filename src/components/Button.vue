@@ -1,7 +1,7 @@
 <template>
   <button type="button" :style="buttonStyle" :disabled="disabled">
     <img class="icon" :src="imgSrc" :style="iconStyle" v-if="icon">
-    <span class="label">{{ label }}</span>
+    <span class="text">{{ text }}</span>
   </button>
 </template>
 
@@ -10,7 +10,7 @@ import Vue from 'vue'
 
 export default Vue.extend({
   props: {
-    label: { type: String, default: 'button', required: true },
+    text: { type: String, default: 'button', required: true },
     type: { type: String, default: 'primary', required: true },
     disabled: { type: Boolean, default: false, required: false },
     icon: { type: String }
@@ -51,7 +51,7 @@ button {
   border: none;
   padding: 0 13px;
 
-  .label {
+  .text {
     text-transform: uppercase;
     font-size: 14px;
     font-weight: 500;

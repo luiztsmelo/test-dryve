@@ -7,7 +7,7 @@
       <span class="label">Status</span>
     </header>
 
-    <div class="vehicles" v-if="!loading && vehicles.length > 0">
+    <div class="vehicles" v-if="vehicles.length > 0">
       <div class="vehicle" v-for="vehicle in vehicles" :key="vehicle.vehicle_uuid">
 
         <div class="vehicle-info-column">
@@ -35,8 +35,11 @@
       </div>
     </div>
 
-    <footer v-if="!loading && vehicles.length > 0">
-      <button class="see-all-btn">Ver tudo</button>
+    <footer v-if="vehicles.length > 0">
+      <button class="see-all-btn">
+        Ver tudo
+        <img src="@/assets/images/ic-arrow-right.svg">
+      </button>
     </footer>
 
   </div>
@@ -48,7 +51,7 @@ import { Vehicle } from '@/types/types'
 
 export default Vue.extend({
   props: {
-    vehicles: []
+    vehicles: { type: Array, default: () => Array }
   },
   methods: {
     vehicleName (vehicle: Vehicle): string {
@@ -173,9 +176,7 @@ export default Vue.extend({
       height: 24px;
       font-size: 14px;
       font-weight: 500;
-      line-height: 1.71;
       letter-spacing: 0.1px;
-      text-align: right;
       color: #0065ff;
     }
   }

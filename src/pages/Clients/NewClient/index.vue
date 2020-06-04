@@ -60,8 +60,8 @@
       </main>
 
       <footer>
-        <Button type="primary" label="Salvar" @click.native="saveClient" :disabled="!validForm" />
-        <Button type="secondary" label="Cancelar" @click.native="$router.push({ name: 'clients' })" />
+        <Button type="primary" text="Salvar" @click.native="saveClient" :disabled="!validForm" />
+        <Button type="secondary" text="Cancelar" @click.native="$router.push({ name: 'clients' })" />
       </footer>
     </form>
   </div>

@@ -6,11 +6,10 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
+<script>
 import VueApexCharts from 'vue-apexcharts'
 
-export default Vue.extend({
+export default {
   components: {
     Apexchart: VueApexCharts
   },
@@ -37,14 +36,14 @@ export default Vue.extend({
           fontFamily: 'Inter',
           fontSize: '13px',
           fontWeight: 500,
-          formatter: function (seriesName: unknown, opts: unknown) {
+          formatter: function (seriesName, opts) {
             return [seriesName, ' - ', opts.w.globals.series[opts.seriesIndex] + '%']
           }
         }
       }
     }
   }
-})
+}
 </script>
 
 <style lang="scss" scoped>

@@ -4,7 +4,7 @@
     <HighlightedBox
       label="Avaliações Hoje"
       icon="ic-directions-car"
-      :value="vehicles.length > 0 ? vehicles.length : '-'"
+      :value="vehicles.length > 0 ? vehicles.length.toString() : '-'"
       :percentageChange="36"
       period="daily"
     />
@@ -12,7 +12,7 @@
     <HighlightedBox
       label="Carros Publicados"
       icon="ic-important-devices"
-      :value="vehicles.length > 0 ? vehicles.length : '-'"
+      :value="vehicles.length > 0 ? vehicles.length.toString() : '-'"
       :percentageChange="4"
       period="monthly"
     />
@@ -58,6 +58,7 @@ import Box from './components/Box.vue'
 import LatestEvaluations from './components/LatestEvaluations.vue'
 import TopBuyIntentions from './components/TopBuyIntentions.vue'
 import Prices from './components/Prices.vue'
+import { Vehicle } from '../../types/types'
 
 export default Vue.extend({
   name: 'home',
@@ -99,7 +100,7 @@ export default Vue.extend({
   computed: {
     averageStockTicket (): string {
       if (this.vehicles.length > 0) {
-        const averageStockTicket = this.vehicles.reduce((prev, curr) => prev + curr.ad_selling_price, 0) / this.vehicles.length
+        const averageStockTicket = this.vehicles.reduce((prev, curr: Vehicle) => prev + curr.ad_selling_price, 0) / this.vehicles.length
 
         return averageStockTicket.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 0, maximumFractionDigits: 0 })
       } else {

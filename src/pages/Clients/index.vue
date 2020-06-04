@@ -2,11 +2,11 @@
   <div id="clients">
 
     <header>
-      <Button type="secondary" label="Filtrar" icon="ic-filter" />
+      <Button type="secondary" text="Filtrar" icon="ic-filter" />
 
       <SearchBar placeholder="Buscar por nome..." v-model="searchInput" />
 
-      <Button type="primary" label="Adicionar" icon="ic-add" style="justify-self: end" @click.native="$router.push({ name: 'new-client', params: { tab: 'dados-do-cliente' } })" />
+      <Button type="primary" text="Adicionar" icon="ic-add" style="justify-self: end" @click.native="$router.push({ name: 'new-client', params: { tab: 'dados-do-cliente' } })" />
     </header>
 
     <div class="clients-table">
