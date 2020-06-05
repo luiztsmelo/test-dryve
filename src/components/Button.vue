@@ -11,22 +11,22 @@ import Vue from 'vue'
 export default Vue.extend({
   props: {
     text: { type: String, default: 'button', required: true },
-    type: { type: String, default: 'primary', required: true },
+    theme: { type: String, default: 'primary', required: true },
     disabled: { type: Boolean, default: false, required: false },
     icon: { type: String, required: false }
   },
   computed: {
     buttonStyle (): string {
-      if (this.type === 'primary') {
+      if (this.theme === 'primary') {
         return 'background-color: #6200ee; color: #fff'
-      } else if (this.type === 'secondary') {
+      } else if (this.theme === 'secondary') {
         return 'background-color: #fff; color: #6200ee'
       } else {
         return ''
       }
     },
     iconStyle (): string {
-      if (this.type === 'primary') {
+      if (this.theme === 'primary') {
         return 'filter: grayscale(100%) brightness(1000%)'
       } else {
         return ''

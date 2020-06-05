@@ -72,8 +72,8 @@
       </main>
 
       <footer>
-        <Button type="primary" text="Salvar" @click.native="saveClient" :disabled="!validForm" />
-        <Button type="secondary" text="Cancelar" @click.native="$router.push({ name: 'clients' })" />
+        <Button theme="primary" text="Salvar" @click.native="saveClient" :disabled="!validForm" />
+        <Button theme="secondary" text="Cancelar" @click.native="$router.push({ name: 'clients' })" />
       </footer>
     </form>
   </div>
@@ -192,7 +192,7 @@ export default Vue.extend({
     font-weight: 500;
     line-height: 1.2;
     letter-spacing: 0.15px;
-    color: rgba(0, 0, 0, 0.87);
+    color: $black-87;
     margin: 0;
     padding: 0;
   }
@@ -217,9 +217,9 @@ export default Vue.extend({
       }
 
       .active {
-        color: #6200ee;
+        color: $blue-violet;
         font-weight: 500;
-        border-bottom: 2px solid #6200ee;
+        border-bottom: 2px solid $blue-violet;
       }
     }
 
@@ -252,7 +252,7 @@ export default Vue.extend({
       display: grid;
       grid-template-columns: 150px 150px 1fr;
       grid-gap: 15px;
-      background-color: #f3f7ff;
+      background-color: $ice-blue;
       padding: 20px;
       border-radius: 4px;
     }
@@ -268,10 +268,10 @@ input {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.15px;
-  color: rgba(0, 0, 0, 0.87);
+  color: $black-87;
 
   &:focus {
-    border: solid 1px #6200ee;
+    border: solid 1px $blue-violet;
   }
 }
 
@@ -289,10 +289,10 @@ select {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.15px;
-  color: rgba(0, 0, 0, 0.87);
+  color: $black-87;
 
   &:focus {
-    border: solid 1px #6200ee;
+    border: solid 1px $blue-violet;
   }
 }
 

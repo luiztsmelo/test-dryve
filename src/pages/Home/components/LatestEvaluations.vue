@@ -84,8 +84,7 @@ export default Vue.extend({
       font-weight: 500;
       line-height: 1.6;
       letter-spacing: 1.5px;
-      color: rgba(0, 0, 0, 0.87);
-      opacity: 0.5;
+      color: $black-43;
     }
   }
 
@@ -141,7 +140,7 @@ export default Vue.extend({
           justify-content: center;
           height: 26px;
           border-radius: 13px;
-          background-color: #f3f7ff;
+          background-color: $ice-blue;
           font-size: 12px;
           line-height: 1;
           color: #768095;
@@ -186,7 +185,7 @@ export default Vue.extend({
   font-size: 12px;
   font-weight: 700;
   line-height: 1.33;
-  color: #1e2c4c;
+  color: $dark-blue-grey;
 }
 
 .small-info {

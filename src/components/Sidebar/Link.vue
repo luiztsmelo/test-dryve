@@ -63,7 +63,7 @@ export default Vue.extend({
     font-weight: 500;
     line-height: 1.14;
     letter-spacing: 0.1px;
-    color: rgba(0, 0, 0, 0.87);
+    color: $black-87;
     padding-left: 25px;
   }
 }

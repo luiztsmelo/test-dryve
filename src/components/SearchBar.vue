@@ -38,7 +38,7 @@ export default Vue.extend({
   background-color: #fff;
 
   &:focus {
-    border: solid 1px #6200ee;
+    border: solid 1px $blue-violet;
   }
 
   input {
@@ -47,7 +47,7 @@ export default Vue.extend({
     font-weight: 500;
     line-height: 1.71;
     letter-spacing: 0.1px;
-    color: rgba(0, 0, 0, 0.87);
+    color: $black-87;
     border: none;
     height: 34px;
     width: 100%;

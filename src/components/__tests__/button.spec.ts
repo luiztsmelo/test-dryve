@@ -5,15 +5,15 @@ describe('@/components/Button.vue', () => {
   describe('primary', () => {
     const wrapper = shallowMount(Button, {
       propsData: {
-        type: 'primary',
+        theme: 'primary',
         text: 'Adicionar'
       }
     })
   
     const button = wrapper.find('button')
 
-    it('should set type', () => {
-      expect(wrapper.props().type).toBe('primary')
+    it('should set theme', () => {
+      expect(wrapper.props().theme).toBe('primary')
     })
   
     it('should set text', () => {
@@ -29,15 +29,15 @@ describe('@/components/Button.vue', () => {
   describe('secondary', () => {
     const wrapper = shallowMount(Button, {
       propsData: {
-        type: 'secondary',
+        theme: 'secondary',
         text: 'Cancelar'
       }
     })
   
     const button = wrapper.find('button')
 
-    it('should set type', () => {
-      expect(wrapper.props().type).toBe('secondary')
+    it('should set theme', () => {
+      expect(wrapper.props().theme).toBe('secondary')
     })
   
     it('should set text', () => {

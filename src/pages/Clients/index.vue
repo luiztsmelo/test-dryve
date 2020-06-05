@@ -2,11 +2,11 @@
   <div id="clients">
 
     <header>
-      <Button type="secondary" text="Filtrar" icon="ic-filter" />
+      <Button theme="secondary" text="Filtrar" icon="ic-filter" />
 
       <SearchBar placeholder="Buscar por nome..." v-model="searchInput" />
 
-      <Button type="primary" text="Adicionar" icon="ic-add" style="justify-self: end" @click.native="$router.push({ name: 'new-client', params: { tab: 'dados-do-cliente' } })" />
+      <Button theme="primary" text="Adicionar" icon="ic-add" style="justify-self: end" @click.native="$router.push({ name: 'new-client', params: { tab: 'dados-do-cliente' } })" />
     </header>
 
     <div class="clients-table">
@@ -104,7 +104,7 @@ export default Vue.extend({
   computed: {
     filteredClients (): Client {
       if (this.searchInput) {
-        return this.$store.getters.getClients(this.itemsPerPage, this.page).filter((client: Client) => client.fullName.toLowerCase().includes(this.searchInput))
+        return this.$store.state.clients.filter((client: Client) => client.fullName.toLowerCase().includes(this.searchInput))
       } else {
         return this.$store.getters.getClients(this.itemsPerPage, this.page)
       }
@@ -156,8 +156,7 @@ export default Vue.extend({
         font-weight: 500;
         line-height: 1.6;
         letter-spacing: 1.5px;
-        color: rgba(0, 0, 0, 0.87);
-        opacity: 0.5;
+        color: $black-43;
         user-select: none;
       }
     }
@@ -181,7 +180,7 @@ export default Vue.extend({
         font-weight: 500;
         line-height: 1.71;
         letter-spacing: 0.1px;
-        color: rgba(0, 0, 0, 0.87);
+        color: $black-87;
       }
 
       .status-tag {

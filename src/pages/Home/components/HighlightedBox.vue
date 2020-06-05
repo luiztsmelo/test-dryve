@@ -73,15 +73,14 @@ export default Vue.extend({
     font-weight: 500;
     line-height: 1.6;
     letter-spacing: 1.5px;
-    color: rgba(0, 0, 0, 0.87);
-    opacity: 0.5;
+    color: $black-43;
     padding-bottom: 6px;
   }
 
   .value {
     font-size: 34px;
     line-height: 1.06;
-    color: rgba(0, 0, 0, 0.87);
+    color: $black-87;
   }
 
   .percentage-change-wrapper {
@@ -97,7 +96,7 @@ export default Vue.extend({
     .period {
       font-size: 11px;
       line-height: 1.45;
-      color: rgba(0, 0, 0, 0.87);
+      color: $black-87;
       opacity: 0.5;
       padding-left: 5px;
     }

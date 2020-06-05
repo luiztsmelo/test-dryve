@@ -77,7 +77,7 @@ export default Vue.extend({
       .username {
         font-size: 14px;
         font-weight: 500;
-        color: rgba(0, 0, 0, 0.87);
+        color: $black-87;
         margin-bottom: 5px;
       }
 
@@ -98,8 +98,7 @@ export default Vue.extend({
           font-size: 10px;
           font-weight: 500;
           text-transform: uppercase;
-          color: rgba(0, 0, 0, 0.87);
-          opacity: 0.5;
+          color: $black-43;
           line-height: 0;
           letter-spacing: 1.5px;
         }
