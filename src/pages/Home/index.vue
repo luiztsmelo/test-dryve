@@ -87,7 +87,7 @@ export default Vue.extend({
       try {
         this.loading = true
 
-        const res = await axios.get('http://www.mocky.io/v2/5eb553df31000060006994a8')
+        const res = await axios.get('https://www.mocky.io/v2/5eb553df31000060006994a8')
 
         this.vehicles = res.data
       } catch (error) {
