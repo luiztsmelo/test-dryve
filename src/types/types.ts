@@ -25,11 +25,11 @@ export interface Client {
   fullName: string
   email: string
   phonenumber: string
-  phonenumber2: string
+  phonenumber2?: string
   cep: string
   street: string
   streetnumber: string
-  complement: string
+  complement?: string
   neighborhood: string
   city: string
   state: string

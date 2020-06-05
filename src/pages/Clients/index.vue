@@ -115,6 +115,11 @@ export default Vue.extend({
 
       return firstItem + '-' + lastItem
     }
+  },
+  watch: {
+    'itemsPerPage' (value) {
+      if (value) this.page = 1
+    }
   }
 })
 </script>
